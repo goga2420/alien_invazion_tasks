@@ -1,9 +1,10 @@
-import sys
 import pygame
 from pygame.sprite import Group
+
+import game_functions as gf
 from settings import Settings
 from ship import Ship
-import game_functions as gf
+
 
 def run_game():
     pygame.init()
