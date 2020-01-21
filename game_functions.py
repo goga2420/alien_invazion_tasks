@@ -51,8 +51,12 @@ def update_screen(ai_settings, screen, ship, bullets):
     ship.blitme()
     pygame.display.flip()
 
-def update_bullets(bullets):
+
+def update_bullets(bullets, screen):
     bullets.update()
     for bullet in bullets.copy():
-        if bullet.rect.bottom <= 0:
+        if bullet.rect.bottom <= 0 \
+                or bullet.rect.left >= screen.get_rect().right \
+                or bullet.rect.top >= screen.get_rect().bottom \
+                or bullet.rect.right <= 0:
             bullets.remove(bullet)
